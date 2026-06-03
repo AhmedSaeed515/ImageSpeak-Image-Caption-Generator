@@ -154,7 +154,7 @@ ImageSpeak/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/ImageSpeak.git
+git clone https://github.com/AhmedSaeed515/ImageSpeak.git
 cd ImageSpeak
 ```
 
