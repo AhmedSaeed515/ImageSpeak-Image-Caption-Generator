@@ -1,0 +1,324 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --syne:'Syne',sans-serif;
+  --mono:'DM Mono',monospace;
+  --sans:'DM Sans',sans-serif;
+}
+body,html{background:transparent}
+.wrap{max-width:860px;margin:0 auto;font-family:var(--sans);color:var(--color-text-primary)}
+
+.hero{padding:3rem 0 2rem;border-bottom:0.5px solid var(--color-border-tertiary)}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-family:var(--mono);letter-spacing:.08em;text-transform:uppercase;background:var(--color-background-info);color:var(--color-text-info);padding:4px 10px;border-radius:20px;margin-bottom:1rem}
+.hero h1{font-family:var(--syne);font-size:3.2rem;font-weight:800;letter-spacing:-.03em;line-height:1.05;margin-bottom:.75rem}
+.hero h1 span{color:var(--color-text-info)}
+.hero-sub{font-size:1.05rem;color:var(--color-text-secondary);line-height:1.7;max-width:580px;margin-bottom:1.5rem;font-weight:300}
+.pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1.5rem}
+.pill{font-family:var(--mono);font-size:11px;padding:4px 12px;border-radius:20px;font-weight:500}
+.pill-blue{background:#E6F1FB;color:#0C447C}
+.pill-teal{background:#E1F5EE;color:#085041}
+.pill-coral{background:#FAECE7;color:#712B13}
+.pill-amber{background:#FAEEDA;color:#633806}
+.pill-purple{background:#EEEDFE;color:#3C3489}
+@media(prefers-color-scheme:dark){
+  .pill-blue{background:#0C447C;color:#B5D4F4}
+  .pill-teal{background:#085041;color:#9FE1CB}
+  .pill-coral{background:#712B13;color:#F5C4B3}
+  .pill-amber{background:#633806;color:#FAC775}
+  .pill-purple{background:#3C3489;color:#CECBF6}
+}
+
+.section{padding:2rem 0;border-bottom:0.5px solid var(--color-border-tertiary)}
+.section-label{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:.5rem}
+.section-title{font-family:var(--syne);font-size:1.6rem;font-weight:700;margin-bottom:1.25rem;letter-spacing:-.02em}
+
+.arch-flow{display:flex;align-items:stretch;gap:0;margin:1.5rem 0;border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden}
+.arch-step{flex:1;padding:1.25rem 1rem;text-align:center;position:relative}
+.arch-step:not(:last-child){border-right:0.5px solid var(--color-border-tertiary)}
+.arch-step-num{font-family:var(--mono);font-size:11px;color:var(--color-text-tertiary);margin-bottom:.35rem}
+.arch-step-icon{font-size:22px;color:var(--color-text-info);margin-bottom:.5rem}
+.arch-step-label{font-size:12px;font-weight:500;line-height:1.4;color:var(--color-text-primary)}
+.arch-step-sub{font-size:11px;color:var(--color-text-secondary);margin-top:.25rem}
+.arch-arrow{display:flex;align-items:center;color:var(--color-text-tertiary);font-size:14px;padding:0 4px}
+
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:1rem}
+.feat-card{background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:1rem 1.1rem;border:0.5px solid var(--color-border-tertiary)}
+.feat-card i{font-size:20px;color:var(--color-text-info);margin-bottom:.6rem;display:block}
+.feat-card h4{font-family:var(--syne);font-size:.9rem;font-weight:600;margin-bottom:.3rem}
+.feat-card p{font-size:12px;color:var(--color-text-secondary);line-height:1.6}
+
+.stack-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-top:1rem}
+.stack-block{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:.75rem 1rem;background:var(--color-background-primary)}
+.stack-block-head{font-size:10px;font-family:var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:.5rem}
+.stack-item{display:flex;align-items:center;gap:6px;font-size:12px;padding:3px 0;color:var(--color-text-secondary)}
+.stack-item i{font-size:14px}
+.stack-dot{width:6px;height:6px;border-radius:50%;background:var(--color-text-tertiary);flex-shrink:0}
+
+.detail-two{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:1rem}
+@media(max-width:560px){.detail-two{grid-template-columns:1fr}.arch-flow{flex-direction:column}.arch-step:not(:last-child){border-right:none;border-bottom:0.5px solid var(--color-border-tertiary)}.hero h1{font-size:2.2rem}}
+.detail-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.25rem}
+.detail-card h4{font-family:var(--syne);font-size:1rem;font-weight:600;margin-bottom:.5rem}
+.detail-card p{font-size:13px;color:var(--color-text-secondary);line-height:1.7}
+.detail-card ul{padding-left:1rem;font-size:13px;color:var(--color-text-secondary);line-height:2}
+
+.code-block{background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:1rem 1.25rem;font-family:var(--mono);font-size:12px;line-height:1.8;margin:.75rem 0;overflow-x:auto}
+.code-block .cm{color:var(--color-text-tertiary)}
+.code-block .ck{color:var(--color-text-info)}
+.code-block .cv{color:var(--color-text-success)}
+.code-step{margin-bottom:1rem}
+.code-step h5{font-size:12px;font-family:var(--mono);font-weight:500;color:var(--color-text-secondary);margin-bottom:.3rem}
+
+.dataset-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:1rem}
+.dataset-card{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.25rem;background:var(--color-background-primary)}
+.dataset-card h4{font-family:var(--syne);font-size:1rem;font-weight:600;margin-bottom:.25rem}
+.dataset-stat{display:flex;gap:12px;margin:.75rem 0;flex-wrap:wrap}
+.stat-chip{font-family:var(--mono);font-size:11px;padding:3px 10px;border-radius:20px;background:var(--color-background-secondary);color:var(--color-text-secondary);border:0.5px solid var(--color-border-tertiary)}
+.dataset-card p{font-size:12px;color:var(--color-text-secondary);line-height:1.6}
+
+.future-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:1rem}
+.future-item{display:flex;align-items:flex-start;gap:10px;padding:.85rem 1rem;border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);background:var(--color-background-primary)}
+.future-item i{font-size:18px;color:var(--color-text-info);margin-top:1px;flex-shrink:0}
+.future-item div h5{font-size:13px;font-weight:500;margin-bottom:.2rem}
+.future-item div p{font-size:11px;color:var(--color-text-secondary);line-height:1.5}
+
+.authors{display:flex;align-items:center;gap:12px;padding:1.5rem 0}
+.author-avatar{width:42px;height:42px;border-radius:50%;background:var(--color-background-info);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:13px;font-weight:500;color:var(--color-text-info);flex-shrink:0}
+.author-name{font-weight:500;font-size:14px}
+.author-role{font-size:12px;color:var(--color-text-secondary)}
+.license-note{font-size:12px;color:var(--color-text-tertiary);font-family:var(--mono);padding:.5rem 0 2rem}
+</style>
+
+<div class="wrap">
+
+<div class="hero">
+  <div class="hero-badge"><i class="ti ti-sparkles" aria-hidden="true"></i>Graduation Project · 2024</div>
+  <h1>Image<span>Speak</span></h1>
+  <p class="hero-sub">An end-to-end AI system that automatically generates meaningful natural language descriptions for images — combining Computer Vision, Vision Transformers, and NLP into a seamless Flutter-powered experience.</p>
+  <div class="pill-row">
+    <span class="pill pill-blue">PyTorch</span>
+    <span class="pill pill-teal">Vision Transformer</span>
+    <span class="pill pill-coral">Flask API</span>
+    <span class="pill pill-amber">Flutter</span>
+    <span class="pill pill-purple">Google Cloud Platform</span>
+    <span class="pill pill-blue">Flickr30k · MS COCO</span>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Overview</div>
+  <div class="section-title">How it works</div>
+  <div class="arch-flow">
+    <div class="arch-step">
+      <div class="arch-step-num">01</div>
+      <i class="ti ti-device-mobile arch-step-icon" aria-hidden="true"></i>
+      <div class="arch-step-label">Image Upload</div>
+      <div class="arch-step-sub">Flutter app</div>
+    </div>
+    <div class="arch-step">
+      <div class="arch-step-num">02</div>
+      <i class="ti ti-server arch-step-icon" aria-hidden="true"></i>
+      <div class="arch-step-label">Flask Backend</div>
+      <div class="arch-step-sub">REST API · GCP</div>
+    </div>
+    <div class="arch-step">
+      <div class="arch-step-num">03</div>
+      <i class="ti ti-eye arch-step-icon" aria-hidden="true"></i>
+      <div class="arch-step-label">ViT Feature Extraction</div>
+      <div class="arch-step-sub">Patch embeddings</div>
+    </div>
+    <div class="arch-step">
+      <div class="arch-step-num">04</div>
+      <i class="ti ti-brain arch-step-icon" aria-hidden="true"></i>
+      <div class="arch-step-label">Caption Decoder</div>
+      <div class="arch-step-sub">BERT + GloVe</div>
+    </div>
+    <div class="arch-step">
+      <div class="arch-step-num">05</div>
+      <i class="ti ti-message-2 arch-step-icon" aria-hidden="true"></i>
+      <div class="arch-step-label">Caption Displayed</div>
+      <div class="arch-step-sub">Natural language output</div>
+    </div>
+  </div>
+
+  <div class="detail-two">
+    <div class="detail-card">
+      <h4>Vision Encoder (ViT)</h4>
+      <p>The image is split into fixed-size patches (e.g. 16×16 pixels), linearly embedded, and fed into a Transformer encoder. The model learns spatial relationships between patches using self-attention — enabling it to capture global context far beyond what CNNs handle locally.</p>
+    </div>
+    <div class="detail-card">
+      <h4>Language Decoder</h4>
+      <p>Image feature vectors from the ViT encoder are passed to an autoregressive decoder initialized with a BERT tokenizer and enhanced with GloVe word embeddings. The decoder generates one token at a time using cross-attention over visual features to produce fluent, descriptive captions.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Capabilities</div>
+  <div class="section-title">Key features</div>
+  <div class="feat-grid">
+    <div class="feat-card">
+      <i class="ti ti-photo-ai" aria-hidden="true"></i>
+      <h4>Automatic captioning</h4>
+      <p>Upload any image and receive a human-readable description generated entirely by the AI pipeline — no templates or rules.</p>
+    </div>
+    <div class="feat-card">
+      <i class="ti ti-layout-grid" aria-hidden="true"></i>
+      <h4>ViT patch attention</h4>
+      <p>Divides images into patches and applies multi-head self-attention, allowing the model to reason about the whole scene contextually.</p>
+    </div>
+    <div class="feat-card">
+      <i class="ti ti-device-mobile-code" aria-hidden="true"></i>
+      <h4>Flutter frontend</h4>
+      <p>A polished cross-platform mobile UI built with Flutter, designed in Figma. Supports live image picking and real-time caption display.</p>
+    </div>
+    <div class="feat-card">
+      <i class="ti ti-cloud" aria-hidden="true"></i>
+      <h4>GCP cloud deployment</h4>
+      <p>Flask API hosted on Google Cloud Platform for scalable, reliable inference. Supports REST-based image uploads and JSON responses.</p>
+    </div>
+    <div class="feat-card">
+      <i class="ti ti-api" aria-hidden="true"></i>
+      <h4>REST API integration</h4>
+      <p>Clean endpoint design: POST an image, receive a caption. Easily extendable for batch processing or third-party integrations.</p>
+    </div>
+    <div class="feat-card">
+      <i class="ti ti-database" aria-hidden="true"></i>
+      <h4>Large-scale training</h4>
+      <p>Trained on Flickr30k and MS COCO — two of the most widely used benchmark datasets for image captioning research.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Tech stack</div>
+  <div class="section-title">Technologies used</div>
+  <div class="stack-grid">
+    <div class="stack-block">
+      <div class="stack-block-head"><i class="ti ti-brain" aria-hidden="true"></i> AI / ML</div>
+      <div class="stack-item"><span class="stack-dot"></span>VisionEncoderDecoderModel</div>
+      <div class="stack-item"><span class="stack-dot"></span>Vision Transformer (ViT)</div>
+      <div class="stack-item"><span class="stack-dot"></span>BERT Tokenizer</div>
+      <div class="stack-item"><span class="stack-dot"></span>GloVe Embeddings</div>
+      <div class="stack-item"><span class="stack-dot"></span>PyTorch</div>
+    </div>
+    <div class="stack-block">
+      <div class="stack-block-head"><i class="ti ti-server" aria-hidden="true"></i> Backend</div>
+      <div class="stack-item"><span class="stack-dot"></span>Flask (Python)</div>
+      <div class="stack-item"><span class="stack-dot"></span>REST API endpoints</div>
+      <div class="stack-item"><span class="stack-dot"></span>JSON response format</div>
+      <div class="stack-item"><span class="stack-dot"></span>Image preprocessing pipeline</div>
+    </div>
+    <div class="stack-block">
+      <div class="stack-block-head"><i class="ti ti-device-mobile" aria-hidden="true"></i> Frontend</div>
+      <div class="stack-item"><span class="stack-dot"></span>Flutter (Dart)</div>
+      <div class="stack-item"><span class="stack-dot"></span>Figma (UI Design)</div>
+      <div class="stack-item"><span class="stack-dot"></span>HTTP client integration</div>
+      <div class="stack-item"><span class="stack-dot"></span>Image picker library</div>
+    </div>
+    <div class="stack-block">
+      <div class="stack-block-head"><i class="ti ti-cloud" aria-hidden="true"></i> Cloud</div>
+      <div class="stack-item"><span class="stack-dot"></span>Google Cloud Platform</div>
+      <div class="stack-item"><span class="stack-dot"></span>Cloud Run / App Engine</div>
+      <div class="stack-item"><span class="stack-dot"></span>Docker containerization</div>
+      <div class="stack-item"><span class="stack-dot"></span>HTTPS API exposure</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Training data</div>
+  <div class="section-title">Datasets</div>
+  <div class="dataset-row">
+    <div class="dataset-card">
+      <h4>Flickr30k</h4>
+      <div class="dataset-stat">
+        <span class="stat-chip">31,783 images</span>
+        <span class="stat-chip">158,915 captions</span>
+        <span class="stat-chip">5 captions / image</span>
+      </div>
+      <p>A widely used benchmark for sentence-based image description. Covers everyday scenes including people, animals, activities, and objects with diverse natural language annotations written by crowd workers.</p>
+    </div>
+    <div class="dataset-card">
+      <h4>MS COCO</h4>
+      <div class="dataset-stat">
+        <span class="stat-chip">330k+ images</span>
+        <span class="stat-chip">1.5M+ captions</span>
+        <span class="stat-chip">80 object categories</span>
+      </div>
+      <p>Microsoft Common Objects in Context — the standard large-scale dataset for image captioning, detection, and segmentation. Provides rich visual diversity across complex real-world scenes and activities.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Getting started</div>
+  <div class="section-title">Installation</div>
+  <div class="code-step">
+    <h5>1 · Clone the repository</h5>
+    <div class="code-block"><span class="ck">git</span> clone https://github.com/your-username/ImageSpeak.git<br><span class="ck">cd</span> ImageSpeak</div>
+  </div>
+  <div class="code-step">
+    <h5>2 · Install Python dependencies</h5>
+    <div class="code-block"><span class="ck">pip</span> install -r requirements.txt</div>
+  </div>
+  <div class="code-step">
+    <h5>3 · Run the Flask server</h5>
+    <div class="code-block"><span class="ck">python</span> app.py<br><span class="cm"># Server starts at http://localhost:5000</span></div>
+  </div>
+  <div class="code-step">
+    <h5>4 · Run the Flutter application</h5>
+    <div class="code-block"><span class="ck">flutter</span> pub get<br><span class="ck">flutter</span> run</div>
+  </div>
+  <div class="code-step">
+    <h5>5 · Sample API usage</h5>
+    <div class="code-block"><span class="cm"># POST an image to get a caption</span><br><span class="ck">curl</span> -X POST https://&lt;your-api&gt;/caption \<br>  -F <span class="cv">"image=@photo.jpg"</span><br><br><span class="cm"># Response</span><br>{ <span class="cv">"caption"</span>: <span class="cv">"A dog running on a grassy field near a lake."</span> }</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Roadmap</div>
+  <div class="section-title">Future improvements</div>
+  <div class="future-list">
+    <div class="future-item">
+      <i class="ti ti-language" aria-hidden="true"></i>
+      <div><h5>Multi-language captions</h5><p>Extend output to Arabic, French, and other languages via multilingual NLP models</p></div>
+    </div>
+    <div class="future-item">
+      <i class="ti ti-live-photo" aria-hidden="true"></i>
+      <div><h5>Real-time captioning</h5><p>Stream live camera frames through the pipeline for on-device or low-latency captioning</p></div>
+    </div>
+    <div class="future-item">
+      <i class="ti ti-volume" aria-hidden="true"></i>
+      <div><h5>Voice output</h5><p>Text-to-speech integration for accessibility — read captions aloud to visually impaired users</p></div>
+    </div>
+    <div class="future-item">
+      <i class="ti ti-chart-line" aria-hidden="true"></i>
+      <div><h5>Improved accuracy</h5><p>Fine-tune on larger datasets and explore newer encoder-decoder architectures (BLIP, OFA)</p></div>
+    </div>
+    <div class="future-item">
+      <i class="ti ti-users" aria-hidden="true"></i>
+      <div><h5>User history</h5><p>Save and manage previous caption generations with cloud sync across devices</p></div>
+    </div>
+    <div class="future-item">
+      <i class="ti ti-adjustments" aria-hidden="true"></i>
+      <div><h5>Caption customization</h5><p>Allow users to adjust verbosity, tone (formal / casual), and detail level of generated captions</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="border-bottom:none">
+  <div class="section-label">Authors</div>
+  <div class="section-title">Team</div>
+  <div class="authors">
+    <div class="author-avatar">AS</div>
+    <div>
+      <div class="author-name">Ahmed Saeed</div>
+      <div class="author-role">Computer Science & Information Systems · Ain Shams University, Class of 2024</div>
+    </div>
+  </div>
+  <div class="license-note">This project was developed as a Graduation Project for academic purposes. · MIT License</div>
+</div>
+
+</div>
